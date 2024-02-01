@@ -1,6 +1,6 @@
 'use strict';
 
-const Encrypt = require('@dan/iut-encrypt');
+const Encrypt = require('@aupicaud/iut-encrypt');
 
 const plainTextPassword = 'motdepasse';
 
