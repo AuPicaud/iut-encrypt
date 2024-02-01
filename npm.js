@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
 
-const Encrypt = require('@aupicaud/iut-encrypt');
+const crypto = require('crypto');
 
-const plainTextPassword = 'motdepasse';
+class Encrypt {
+    static sha1(plainText) {
+        return crypto.createHash('sha1').update(plainText).digest('hex');
+    }
 
-const passwordSha1 = Encrypt.sha1(plainTextPassword);
-
-
-// Vous pouvez si vous voulez rajouter une méthode afin de comparer un mot de passe
-
-if(Encrypt.compareSha1('motdepassesaisit', passwordSha1)){
-
-    console.log('Connexion validé');
+    static compareSha1(plainText, encrypted) {
+        return this.sha1(plainText) === encrypted;
+    }
 }
+
+module.exports = Encrypt;
